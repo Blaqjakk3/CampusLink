@@ -1,4 +1,3 @@
-// Layout.tsx
 import { Ionicons } from "@expo/vector-icons";
 import { Tabs } from "expo-router";
 import React from "react";
@@ -6,8 +5,8 @@ import { View, Text, Platform } from "react-native";
 import Friends from "./friends";
 import Cliques from "./cliques";
 import Events from "./events";
-import addscreen from "./addscreen";
-import profile from "./profile";
+import AddScreen from "./addscreen";
+import Profile from "./profile";
 import CustomHeader from "../../components/CustomHeader"; // Import the custom header
 
 export default function Layout() {

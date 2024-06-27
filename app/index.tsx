@@ -7,6 +7,7 @@ import { blue } from "react-native-reanimated/lib/typescript/reanimated2/Colors"
 import { StyleSheet } from "react-native";
 import CustomButton from "@/components/CustomButton";
 import 'react-native-url-polyfill/auto'
+import { useGlobalContext } from "@/context/GlobalProvider";
 
 
 const logoImg = require("../assets/images/logo2.png");
@@ -17,6 +18,8 @@ const friendsImg = require("../assets/images/friends.png");
 
 
 export default function App() {
+   const {isLoading, isLoggedIn} = useGlobalContext();
+  if (!isLoading && isLoggedIn ) return <Redirect href="(tabs)/friends" />
   return (
     <SafeAreaView style={styles.container}>
       <Image source={logoImg} style={styles.logo} resizeMode="contain" />
@@ -72,6 +75,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: 'gray', // Adjust subtext color
     top: -160,
+    
   },
 
 
