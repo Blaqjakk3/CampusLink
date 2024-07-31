@@ -1,5 +1,3 @@
-
-
 import { View, Text, Image, StyleSheet } from 'react-native'
 import React, { useState } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -8,10 +6,10 @@ import CustomButton from '@/components/CustomButton';
 import { Link } from 'expo-router';
 import { KeyboardAvoidingView } from 'react-native';
 import { Alert } from 'react-native';
-import { SignIn, deleteCurrentSession } from '@/lib/appwrite';
+import { SignIn } from '@/lib/appwrite';
 import { useRouter } from 'expo-router';
 import { useFocusEffect } from '@react-navigation/native';
-
+import { deleteCurrentSession } from '@/lib/appwrite';
 
 
 const logoImg = require("../../assets/images/logo2.png");

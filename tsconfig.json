@@ -12,7 +12,8 @@
   "include": [
     "**/*.ts",
     "**/*.tsx",
+    "**/*.js",
     ".expo/types/**/*.ts",
     "expo-env.d.ts"
-, "constants/icons.ts", "lib/appwrite.js"  ]
+, "constants/icons.ts", "lib/appwrite.ts", "context/GlobalProvider.js", "app/(tabs)/friends/_layout.tsx", "app/(tabs)/friends/index.tsx"  ]
 }

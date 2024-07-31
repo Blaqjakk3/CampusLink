@@ -10,6 +10,7 @@ import 'react-native-url-polyfill/auto'
 import { useGlobalContext } from "@/context/GlobalProvider";
 
 
+
 const logoImg = require("../assets/images/logo2.png");
 //declaring a function for the logo image
 
@@ -18,8 +19,9 @@ const friendsImg = require("../assets/images/friends.png");
 
 
 export default function App() {
-   const {isLoading, isLoggedIn} = useGlobalContext();
-  if (!isLoading && isLoggedIn ) return <Redirect href="(tabs)/friends" />
+  const {isLoading, isLoggedIn} = useGlobalContext();
+
+  if(!isLoading && isLoggedIn) return <Redirect href="/friends" /> 
   return (
     <SafeAreaView style={styles.container}>
       <Image source={logoImg} style={styles.logo} resizeMode="contain" />

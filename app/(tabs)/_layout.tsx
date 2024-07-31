@@ -1,19 +1,26 @@
 import { Ionicons } from "@expo/vector-icons";
-import { Tabs } from "expo-router";
+import { Tabs, useRootNavigationState } from "expo-router";
 import React from "react";
 import { View, Text, Platform } from "react-native";
 import Friends from "./friends";
-import Cliques from "./cliques";
 import Events from "./events";
-import AddScreen from "./addscreen";
 import Profile from "./profile";
 import CustomHeader from "../../components/CustomHeader"; // Import the custom header
+import { Colors } from "@/constants/Colors";
+import { useNavigationState, useRoute } from "@react-navigation/native";
+
+
+
 
 export default function Layout() {
+  const state = useNavigationState((state) => state);
+
+  
+
   return (
     <Tabs
       screenOptions={({ route }) => ({
-        headerShown: true,
+        headerShown: false,
         tabBarShowLabel: false,
         tabBarStyle: {
           position: "absolute",
@@ -26,12 +33,11 @@ export default function Layout() {
           justifyContent: "center",
           borderTopLeftRadius: 32,
           borderTopRightRadius: 32,
-        },
+          display: state.routeNames[2] === 'friends/[id]' ? 'none' : 'flex',
+          },
         header: () => {
           let title = route.name.charAt(0).toUpperCase() + route.name.slice(1);
-          if (route.name === "addscreen") {
-            title = "Add";
-          }
+         
           return <CustomHeader title={title} />;
         },
       })}
@@ -48,7 +54,7 @@ export default function Layout() {
             >
               <Ionicons
                 name={focused ? "heart" : "heart-half-outline"}
-                color={focused ? "#ff2c5f" : "gray"}
+                color={focused ? Colors.primary : "gray"}
                 size={28}
               />
               <Text
@@ -60,62 +66,6 @@ export default function Layout() {
               >
                 Friends 
               </Text>
-            </View>
-          ),
-        }}
-      />
-
-      <Tabs.Screen
-        name="cliques"
-        options={{
-          tabBarIcon: ({ focused }) => (
-            <View
-              style={{
-                alignItems: "center",
-                paddingTop: 10,
-              }}
-            >
-              <Ionicons
-                name={focused ? "people" : "people-circle-outline"}
-                color={focused ? "#ff2c5f" : "gray"}
-                size={28}
-              />
-              <Text
-                style={{
-                  color: focused ? "#ff2c5f" : "gray",
-                  fontSize: 12,
-                  marginTop: 4,
-                }}
-              >
-                Cliques   </Text>
-            </View>
-          ),
-        }}
-      />
-
-      <Tabs.Screen
-        name="addscreen"
-        options={{
-          tabBarIcon: ({ focused }) => (
-            <View
-              style={{
-                alignItems: "center",
-                alignContent: "center",
-                justifyContent: "center",
-                backgroundColor: focused ? "#ff2c5f" : "white",
-                height: Platform.OS === "android" ? 70 : 60,
-                width: Platform.OS === "android" ? 70 : 60,
-                top: Platform.OS === "android" ? -40 : -30,
-                borderRadius: Platform.OS === "android" ? 35 : 30,
-                borderWidth: 3,
-                borderColor: "#ff2c5f",
-              }}
-            >
-              <Ionicons
-                name="add"
-                size={24}
-                color={focused ? "white" : "black"} // Change icon color based on focus
-              />
             </View>
           ),
         }}
@@ -143,7 +93,36 @@ export default function Layout() {
                   marginTop: 4,
                 }}
               >
-                Events </Text>
+                Events
+              </Text>
+            </View>
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="skills"
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <View
+              style={{
+                alignItems: "center",
+                paddingTop: 10,
+              }}
+            >
+              <Ionicons
+                name={focused ? "bulb" : "bulb-outline"}
+                color={focused ? "#ff2c5f" : "gray"}
+                size={28}
+              />
+              <Text
+                style={{
+                  color: focused ? "#ff2c5f" : "gray",
+                  fontSize: 12,
+                  marginTop: 4,
+                }}
+              >
+                Skills
+              </Text>
             </View>
           ),
         }}
@@ -171,7 +150,8 @@ export default function Layout() {
                   marginTop: 4,
                 }}
               >
-                Profile </Text>
+                Profile
+              </Text>
             </View>
           ),
         }}

@@ -44,7 +44,7 @@ const SignUp = () => {
         form.programme,
         form.school,
       );
-      router.replace('../(tabs)/addscreen');
+      router.replace('../(tabs)/friends');
     } catch (error) {
       Alert.alert('Error', error.message);
     } finally {
@@ -67,7 +67,7 @@ const SignUp = () => {
           <View style={{ marginTop: 7 }} className='w-full min-h-[80vh] px-4 py-6 justify-center'>
             <Image source={logoImg} style={styles.logo} />
             <Text className='text-2xl font-semibold mt-10 font-psemibold'>Sign-Up To CampusLink</Text>
-          
+
             <KeyboardAvoidingView keyboardVerticalOffset={30}>
               <FormField
                 title="Full Name"
@@ -75,7 +75,7 @@ const SignUp = () => {
                 handleChangeText={(e) => setForm({ ...form, fullname: e })}
                 otherStyles="mt-10"
               />
-      
+
               <FormField
                 title="Email"
                 value={form.email}
@@ -91,7 +91,7 @@ const SignUp = () => {
                 otherStyles="mt-7"
                 secureTextEntry
               />
-                <FormField
+              <FormField
                 title="Year of Study"
                 value={form.yearOfstudy}
                 handleChangeText={(e) => setForm({ ...form, yearOfstudy: e })}
@@ -147,9 +147,17 @@ const SignUp = () => {
                   onValueChange={(itemValue) => setForm({ ...form, school: itemValue })}
                 >
                   <Picker.Item label="Select a school" value="" />
-                  <Picker.Item label="School 1" value="School 1" />
-                  <Picker.Item label="School 2" value="School 2" />
-                  <Picker.Item label="School 3" value="School 3" />
+                  <Picker.Item label="UG" value="University of Ghana" />
+                  <Picker.Item label="KNUST" value="Kwame Nkrumah University of Science and Technology" />
+                  <Picker.Item label="UCC" value="University of Cape Coast" />
+                  <Picker.Item label="UEW" value="University of Education, Winneba" />
+                  <Picker.Item label="GIMPA" value="Ghana Institute of Management and Public Administration" />
+                  <Picker.Item label="UPSA" value="University of Professional Studies, Accra" />
+                  <Picker.Item label="UMaT" value="University of Mines and Technology" />
+                  <Picker.Item label="UENR" value="University of Energy and Natural Resources" />
+                  <Picker.Item label="UDS" value="University for Development Studies" />
+                  <Picker.Item label="Ashesi" value="Ashesi University" />
+
                   {/* Add more schools as needed */}
                 </Picker>
               </View>

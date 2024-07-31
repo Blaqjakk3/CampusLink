@@ -15,7 +15,7 @@ const [showConfirmPassword, setshowConfirmPassword] = useState(false)
   return (
     <GestureHandlerRootView style={{ flex: 0 }}>
     <View className='space-y-2'>
-     <Text style={{ color: '#ff2c5f' }} className="text-base font-pmedium">{title}</Text>
+     <Text style={{ color: 'black' }} >{title}</Text>
      
      
      <View style={{borderColor: 'black'  }} className='border-2 w-full h-16 px-4 bg-gray-100
@@ -24,7 +24,7 @@ const [showConfirmPassword, setshowConfirmPassword] = useState(false)
 className='flex-1 text-black font-psemibold text-base'
 value={value}
 placeholder={placeholder}
-placeholderTextColor="#ff2c5f"
+placeholderTextColor="black"
 onChangeText={handleChangeText}
 secureTextEntry={title === 'Password' ? !showPassword : title === 'Confirm Password' ? !showConfirmPassword : false}
 

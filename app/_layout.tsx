@@ -2,7 +2,7 @@ import { StyleSheet, Text, View } from 'react-native'
 import { Slot, SplashScreen, Stack } from 'expo-router';
 import { useFonts } from 'expo-font';
 import { useEffect } from 'react';
-
+import GlobalProvider from '@/context/GlobalProvider';
 
 
 
@@ -32,16 +32,22 @@ const RootLayout = () => {
 
 
   return(
+    <GlobalProvider>
     <Stack>
       <Stack.Screen name= "index" options={{headerShown: false}} />
       <Stack.Screen name= "(auth)" options={{headerShown: false}} />
-      <Stack.Screen name= "(tabs)" options={{headerShown: false}} />
+      <Stack.Screen name= "(tabs)"  options={{headerShown: false}}  />
+      <Stack.Screen name= "FriendChat"  />
+       <Stack.Screen name= "cliquechat" options={{headerShown: false}} />
+       <Stack.Screen name= "addscreens" options={{headerShown: false}} />
+       <Stack.Screen name= "EventDetails" options={{headerShown: false}} />
+       <Stack.Screen name= "create" options={{headerShown: false}} />
+       <Stack.Screen name= "techskills" options={{headerShown: false}} />
     </Stack>
-
+    </GlobalProvider>
   )
   
 }
-
 export default RootLayout
 
 

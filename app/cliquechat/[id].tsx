@@ -1,12 +1,12 @@
 import { View, Text } from 'react-native'
 import React from 'react'
 
-const Events = () => {
+const Cliqueschat = () => {
   return (
     <View>
-      <Text>Events</Text>
+      <Text>Cliqueschat</Text>
     </View>
   )
 }
 
-export default Events
+export default Cliqueschat
